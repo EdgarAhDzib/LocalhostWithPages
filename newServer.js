@@ -25,52 +25,38 @@ function handleRequest(request, res) {
 	switch (url_parts.pathname) {
 		case '/index.html':
 			fs.readFile("index.html", function(err, data){
-		res.writeHead(200, {'Content-Type':'text/html'});
-		res.end(data);
-	});
+				res.writeHead(200, {'Content-Type':'text/html'});
+				res.end(data);
+			});
 			break;
 		case '/food.html':
-		fs.readFile("food.html", function(err, data){
-		res.writeHead(200, {'Content-Type':'text/html'});
-		res.end(data);
-	});
+			fs.readFile("food.html", function(err, data){
+				res.writeHead(200, {'Content-Type':'text/html'});
+				res.end(data);
+			});
 			break;
 		case '/movies.html':
-fs.readFile("movies.html", function(err, data){
-		res.writeHead(200, {'Content-Type':'text/html'});
-		res.end(data);
-	});
+			fs.readFile("movies.html", function(err, data){
+				res.writeHead(200, {'Content-Type':'text/html'});
+				res.end(data);
+			});
 			break;
 		case '/css.html':
-fs.readFile("css.html", function(err, data){
-		res.writeHead(200, {'Content-Type':'text/html'});
-		res.end(data);
-	});
+			fs.readFile("css.html", function(err, data){
+				res.writeHead(200, {'Content-Type':'text/html'});
+				res.end(data);
+			});
 			break;
 		default:
+			display_404(res);
 			console.log("Something went wrong");
 	}
 }
 
-/*
-function handleRequestTwo(req, res) {
-	fs.readFile("movies.html", function(err, data){
-		res.writeHead(200, {'Content-Type':'text/html'});
-		res.end(data);
-	});
+function display_404(){
+	function display_404(response) {
+	response.writeHead(404, {'Content-Type': 'text/html'});
+	response.write("<h1>404 Page not found!</h1>");
+	response.end("Sorry, can't find page" + url);
 }
-
-function handleRequestThree(req, res) {
-	fs.readFile("food.html", function(err, data){
-		res.writeHead(200, {'Content-Type':'text/html'});
-		res.end(data);
-	});
 }
-
-function handleRequestFour(req, res) {
-	fs.readFile("css.html", function(err, data){
-		res.writeHead(200, {'Content-Type':'text/html'});
-		res.end(data);
-	});
-}
-*/
