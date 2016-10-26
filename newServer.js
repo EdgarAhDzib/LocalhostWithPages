@@ -6,15 +6,6 @@ var PORT = 8080;
 
 var server = http.createServer(handleRequest);
 
-/*
-function handleRequest(req, res) {
-	fs.readFile("index.html", function(err, data){
-		res.writeHead(200, {'Content-Type':'text/html'});
-		res.end(data);
-	});
-}
-*/
-
 server.listen(PORT, function(){
 	console.log("Server is listening on : " + PORT);
 });
@@ -53,10 +44,9 @@ function handleRequest(request, res) {
 	}
 }
 
-function display_404(){
-	function display_404(response) {
+
+function display_404(response) {
 	response.writeHead(404, {'Content-Type': 'text/html'});
 	response.write("<h1>404 Page not found!</h1>");
 	response.end("Sorry, can't find page" + url);
-}
 }
