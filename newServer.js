@@ -14,25 +14,25 @@ function handleRequest(request, res) {
 	var url_parts = url.parse(request.url);
 	console.log(url_parts);
 	switch (url_parts.pathname) {
-		case '/index.html':
+		case '/':
 			fs.readFile("index.html", function(err, data){
 				res.writeHead(200, {'Content-Type':'text/html'});
 				res.end(data);
 			});
 			break;
-		case '/food.html':
+		case '/food':
 			fs.readFile("food.html", function(err, data){
 				res.writeHead(200, {'Content-Type':'text/html'});
 				res.end(data);
 			});
 			break;
-		case '/movies.html':
+		case '/movies':
 			fs.readFile("movies.html", function(err, data){
 				res.writeHead(200, {'Content-Type':'text/html'});
 				res.end(data);
 			});
 			break;
-		case '/css.html':
+		case '/css':
 			fs.readFile("css.html", function(err, data){
 				res.writeHead(200, {'Content-Type':'text/html'});
 				res.end(data);
